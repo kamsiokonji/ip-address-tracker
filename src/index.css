@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide the default clear button in WebKit browsers (e.g., Chrome, Safari) */
+.no-clear-button::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Hide the default clear button in Edge */
+.no-clear-button::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.leaflet-container {
+  height: 75vh;
+}
