@@ -1,8 +1,9 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { MapProps } from "@/lib/utils/types";
 import { Icon } from "leaflet";
 import marker from "@/assets/images/icon-location.svg";
+import { useEffect } from "react";
 
 const Map: React.FC<MapProps> = ({
   latitude,
@@ -16,7 +17,21 @@ const Map: React.FC<MapProps> = ({
     iconSize: [35, 40],
   });
 
-  console.log(latitude, longitude);
+  const MapPositionUpdater = ({
+    latitude,
+    longitude,
+  }: {
+    latitude: number;
+    longitude: number;
+  }) => {
+    const map = useMap();
+
+    useEffect(() => {
+      map.setView([latitude, longitude]);
+    }, [latitude, longitude, map]);
+
+    return null;
+  };
 
   return (
     <MapContainer
@@ -32,6 +47,7 @@ const Map: React.FC<MapProps> = ({
       <Marker position={[latitude, longitude]} icon={customIcon}>
         <Popup>{`${city}, ${region}, ${country}`}</Popup>
       </Marker>
+      <MapPositionUpdater latitude={latitude} longitude={longitude} />
     </MapContainer>
   );
 };
