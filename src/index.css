@@ -18,5 +18,11 @@
 }
 
 .leaflet-container {
-  height: 75vh;
+  height: calc(100vh - 255.99px);
+}
+
+@media screen and (max-width: 450px) {
+  .leaflet-container {
+    height: calc(100vh - 340px);
+  }
 }

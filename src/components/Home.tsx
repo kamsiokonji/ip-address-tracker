@@ -53,7 +53,7 @@ const Home = () => {
         <img
           src={image}
           alt="background-image"
-          className="w-full sm:block lg:hidden md:hidden h-96"
+          className="w-full sm:block lg:hidden md:hidden "
         />
 
         <h1 className="absolute top-9 text-2xl font-rubik font-medium text-white">
